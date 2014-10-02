@@ -1,0 +1,19 @@
+{
+	"installed_packages":
+	[
+		"Alignment",
+		"Git",
+		"GitCommitMsg",
+		"GitGutter",
+		"HexViewer",
+		"Indent XML",
+		"Jasmine BDD",
+		"jQuery",
+		"RubyTest",
+		"SCSS",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
+		"SublimeLinter-rubocop",
+		"TrailingSpaces"
+	]
+}
