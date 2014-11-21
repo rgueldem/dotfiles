@@ -12,7 +12,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,14 +30,14 @@ set ic is
 set ruler
 set showcmd
 set number
+set hidden
 let c_space_errors = 1
 
-autocmd QuickFixCmdPost *grep* cwindow
+au QuickFixCmdPost *grep* cwindow
 au BufReadPost *.hdbs set syntax=mustache
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-" always show vim-airline
-set laststatus=2
+au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
