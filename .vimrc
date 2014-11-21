@@ -34,6 +34,11 @@ set hidden
 let c_space_errors = 1
 
 au QuickFixCmdPost *grep* cwindow
+
+" ctrlp
+let g:ctrlp_max_files = 30000
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+
 au BufReadPost *.hdbs set syntax=mustache
 
 highlight ExtraWhitespace ctermbg=red guibg=red
