@@ -12,7 +12,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,7 +30,8 @@ set ic is
 set ruler
 set showcmd
 set number
-set hidden
+#set hidden
+set clipboard=unnamed
 let c_space_errors = 1
 
 au QuickFixCmdPost *grep* cwindow
@@ -40,9 +41,13 @@ let g:ctrlp_max_files = 30000
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 au BufReadPost *.hdbs set syntax=mustache
+au BufNewFile,BufReadPost *.md set filetype=markdown
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
