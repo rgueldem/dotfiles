@@ -12,7 +12,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,7 +30,7 @@ set ic is
 set ruler
 set showcmd
 set number
-#set hidden
+"set hidden
 set clipboard=unnamed
 let c_space_errors = 1
 
@@ -51,3 +51,6 @@ au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+au InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
+au InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
