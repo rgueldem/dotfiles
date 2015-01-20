@@ -50,7 +50,8 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+"inoremap <c-w> <c-g>u<c-w>
+inoremap <c-w> <Esc><c-w>
 
 au InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 au InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
