@@ -40,6 +40,10 @@ au QuickFixCmdPost *grep* cwindow
 let g:ctrlp_max_files = 30000
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
+" netrw
+let g:netrw_preview = 1
+let g:netrw_winsize = 30
+
 au BufReadPost *.hdbs set syntax=mustache
 au BufNewFile,BufReadPost *.md set filetype=markdown
 
