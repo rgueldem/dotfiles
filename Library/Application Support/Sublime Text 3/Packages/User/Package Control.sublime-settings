@@ -1,4 +1,12 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Alignment",
@@ -7,8 +15,9 @@
 		"GitGutter",
 		"HexViewer",
 		"Indent XML",
-		"Jasmine BDD",
+		"Jasmine JS",
 		"jQuery",
+		"Package Control",
 		"RubyTest",
 		"SCSS",
 		"SublimeLinter",
