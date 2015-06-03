@@ -31,6 +31,7 @@ set ic is
 set ruler
 set showcmd
 set number
+set backspace=2
 "set hidden
 set clipboard=unnamed
 let c_space_errors = 1
