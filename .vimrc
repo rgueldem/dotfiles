@@ -12,6 +12,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-expand-region'
 " Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
@@ -43,6 +44,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 " netrw
 let g:netrw_preview = 1
 let g:netrw_winsize = 30
+
+" vim-exand-region
+vmap v <Plug>(expand_region_expand)
+vmap u <Plug>(expand_region_shrink)
 
 au BufReadPost *.hdbs set syntax=mustache
 au BufNewFile,BufReadPost *.md set filetype=markdown
