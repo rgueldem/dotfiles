@@ -31,8 +31,11 @@ set ic is
 set ruler
 set showcmd
 set number
+" allow backspace over any text
 set backspace=2
-"set hidden
+" always show status line
+set laststatus=2
+" use system clipboard
 set clipboard=unnamed
 let c_space_errors = 1
 
@@ -62,6 +65,17 @@ au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 inoremap <c-u> <c-g>u<c-u>
 "inoremap <c-w> <c-g>u<c-w>
 inoremap <c-w> <Esc><c-w>
+" use ctrl-c for escape
+inoremap <c-c> <Esc>
 
+" ctrl-s to save
+" ctrl-s to save in insert mode
+inoremap <c-s> <c-o>:update<cr>
+" ctrl-s to save in visual mode
+vnoremap <c-s> <esc>:update<CR>gv
+" ctrl-s to save in normal mode
+nnoremap <c-s> :update<cr>
+
+" red status line in insert mode
 au InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 au InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
