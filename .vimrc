@@ -9,10 +9,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-commentary'
 " Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
@@ -79,3 +80,9 @@ nnoremap <c-s> :update<cr>
 " red status line in insert mode
 au InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 au InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
+
+" folding
+set foldmethod=syntax
+set nofoldenable
+set foldnestmax=3
+nnoremap <Space> za
