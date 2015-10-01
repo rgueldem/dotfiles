@@ -43,7 +43,7 @@ let c_space_errors = 1
 au QuickFixCmdPost *grep* cwindow
 
 " ctrlp
-let g:ctrlp_max_files = 30000
+let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 " netrw
@@ -86,3 +86,7 @@ set foldmethod=syntax
 set nofoldenable
 set foldnestmax=3
 nnoremap <Space> za
+" Don't screw up folds when inserting text that might affect them, until
+" leaving insert mode. Foldmethod is local to the window.
+autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
+autocmd InsertLeave * let &l:foldmethod=w:last_fdm
