@@ -28,7 +28,7 @@ colorscheme solarized
 set t_Co=16
 set background=light
 set tabstop=2 shiftwidth=2 expandtab
-set ic is
+set ignorecase incsearch
 set ruler
 set showcmd
 set number
@@ -38,9 +38,13 @@ set backspace=2
 set laststatus=2
 " use system clipboard
 set clipboard=unnamed
-let c_space_errors = 1
 
-au QuickFixCmdPost *grep* cwindow
+" highlight extra spaces
+let c_space_errors = 1
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 " ctrlp
 let g:ctrlp_max_files = 0
@@ -54,20 +58,13 @@ let g:netrw_winsize = 30
 vmap v <Plug>(expand_region_expand)
 vmap u <Plug>(expand_region_shrink)
 
-au BufReadPost *.hdbs set syntax=mustache
-au BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufReadPost *.hdbs set syntax=mustache
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
-
-au FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 inoremap <c-u> <c-g>u<c-u>
-"inoremap <c-w> <c-g>u<c-w>
 inoremap <c-w> <Esc><c-w>
-" use ctrl-c for escape
-inoremap <c-c> <Esc>
 
 " ctrl-s to save
 " ctrl-s to save in insert mode
@@ -78,15 +75,5 @@ vnoremap <c-s> <esc>:update<CR>gv
 nnoremap <c-s> :update<cr>
 
 " red status line in insert mode
-au InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
-au InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
-
-" folding
-set foldmethod=syntax
-set nofoldenable
-set foldnestmax=3
-nnoremap <Space> za
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window.
-autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
-autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
+autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
