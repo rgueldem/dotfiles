@@ -14,6 +14,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-commentary'
+Plugin 'mhinz/vim-grepper'
 " Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
@@ -32,6 +33,7 @@ set ignorecase incsearch
 set ruler
 set showcmd
 set number
+set nohlsearch
 " allow backspace over any text
 set backspace=2
 " always show status line
@@ -44,14 +46,22 @@ let c_space_errors = 1
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-autocmd QuickFixCmdPost *grep* cwindow
+" autocmd QuickFixCmdPost *grep* cwindow
+" Grepper
+let g:grepper = {
+      \ 'quickfix': 1,
+      \ 'open': 1,
+      \ 'switch': 1,
+      \ 'jump': 0,
+      \ }
+nnoremap <Leader>g :Grepper<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 " netrw
-let g:netrw_preview = 1
+" let g:netrw_preview = 1
 let g:netrw_winsize = 30
 
 " vim-exand-region
@@ -78,5 +88,19 @@ nnoremap <c-s> :update<cr>
 autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
 
-" cursor as pipe in insert mode
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" tab to next buffer
+nnoremap <tab> :bn<cr>
+
+" Force hjkl
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+if has('nvim')
+  " exit terminal mode in nvim
+  tnoremap <Esc> <C-\><C-n>
+
+  " cursor as pipe in insert mode
+  :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+endif
