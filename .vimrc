@@ -77,3 +77,6 @@ nnoremap <c-s> :update<cr>
 " red status line in insert mode
 autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
+
+" cursor as pipe in insert mode
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
