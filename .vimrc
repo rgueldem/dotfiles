@@ -15,7 +15,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
-" Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -40,6 +39,8 @@ set backspace=2
 set laststatus=2
 " use system clipboard
 set clipboard=unnamed
+" no need for swapfiles
+set noswapfile
 
 " highlight extra spaces
 let c_space_errors = 1
@@ -88,8 +89,9 @@ nnoremap <c-s> :update<cr>
 autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
 autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
 
-" tab to next buffer
+" tab to alternate buffer
 nnoremap <tab> :bn<cr>
+nnoremap <s-tab> :bp<cr>
 
 " Force hjkl
 noremap <Up> <NOP>
