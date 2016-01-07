@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
+Plugin 'elixir-lang/vim-elixir'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
