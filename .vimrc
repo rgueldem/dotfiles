@@ -8,7 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
@@ -43,6 +43,8 @@ set clipboard=unnamed
 " no need for swapfiles
 set noswapfile
 
+nnoremap <Leader>q :qa<CR>
+
 " highlight extra spaces
 let c_space_errors = 1
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -61,6 +63,7 @@ nnoremap <Leader>g :Grepper<CR>
 " ctrlp
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 
 " netrw
 " let g:netrw_preview = 1
@@ -73,7 +76,8 @@ vmap u <Plug>(expand_region_shrink)
 autocmd BufReadPost *.hdbs set syntax=mustache
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-autocmd FileType rb,erb,html,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+" remove extra whitespace on save
+autocmd FileType ruby,eruby,html,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <Esc><c-w>
