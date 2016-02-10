@@ -53,6 +53,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " autocmd QuickFixCmdPost *grep* cwindow
 " Grepper
 let g:grepper = {
+      \ 'tools': ['git', 'ag', 'ack', 'grep'],
       \ 'quickfix': 1,
       \ 'open': 1,
       \ 'switch': 1,
