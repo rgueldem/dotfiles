@@ -16,6 +16,11 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'derekwyatt/vim-scala'
+"Plugin 'ensime/ensime-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'justinmk/vim-sneak'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +49,8 @@ set clipboard=unnamed
 set noswapfile
 
 nnoremap <Leader>q :qa<CR>
+cnoremap W w
+nnoremap <Leader>e :Explore<CR>
 
 " highlight extra spaces
 let c_space_errors = 1
@@ -60,6 +67,9 @@ let g:grepper = {
       \ 'jump': 0,
       \ }
 nnoremap <Leader>g :Grepper<CR>
+
+" scala
+let g:syntastic_scala_checkers = ['fsc']
 
 " ctrlp
 let g:ctrlp_max_files = 0
