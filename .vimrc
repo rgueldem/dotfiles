@@ -17,7 +17,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'derekwyatt/vim-scala'
-"Plugin 'ensime/ensime-vim'
+Plugin 'ensime/ensime-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'justinmk/vim-sneak'
@@ -70,6 +70,8 @@ nnoremap <Leader>g :Grepper<CR>
 
 " scala
 let g:syntastic_scala_checkers = ['fsc']
+"autocmd BufWritePost *.scala :EnTypeCheck
+nnoremap <localleader>t :EnTypeCheck<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
