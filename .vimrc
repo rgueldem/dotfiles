@@ -18,6 +18,8 @@ Plugin 'ensime/ensime-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'justinmk/vim-sneak'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,6 +65,9 @@ let g:grepper = {
       \ 'jump': 0,
       \ }
 nnoremap <Leader>g :Grepper<CR>
+
+nnoremap <Leader>f :setlocal foldmethod=syntax<CR>
+nnoremap <Leader>F :setlocal nofoldenable<CR>
 
 " scala
 let g:syntastic_scala_checkers = ['fsc']
