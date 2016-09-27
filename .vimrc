@@ -10,14 +10,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'derekwyatt/vim-scala'
-"Plugin 'ensime/ensime-vim'
+Plugin 'ensime/ensime-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'justinmk/vim-sneak'
@@ -49,7 +46,6 @@ set clipboard=unnamed
 set noswapfile
 
 nnoremap <Leader>q :qa<CR>
-cnoremap W w
 nnoremap <Leader>e :Explore<CR>
 
 " highlight extra spaces
@@ -80,26 +76,14 @@ nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 " let g:netrw_preview = 1
 let g:netrw_winsize = 30
 
-" vim-exand-region
-vmap v <Plug>(expand_region_expand)
-vmap u <Plug>(expand_region_shrink)
-
 autocmd BufReadPost *.hdbs set syntax=mustache
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " remove extra whitespace on save
-autocmd FileType ruby,eruby,html,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType ruby,eruby,html,javascript,scala,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <Esc><c-w>
-
-" ctrl-s to save
-" ctrl-s to save in insert mode
-inoremap <c-s> <c-o>:update<cr>
-" ctrl-s to save in visual mode
-vnoremap <c-s> <esc>:update<CR>gv
-" ctrl-s to save in normal mode
-nnoremap <c-s> :update<cr>
 
 " red status line in insert mode
 autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
@@ -116,9 +100,6 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 if has('nvim')
-  " exit terminal mode in nvim
-  tnoremap <Esc> <C-\><C-n>
-
   " cursor as pipe in insert mode
   :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
