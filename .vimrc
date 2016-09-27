@@ -66,6 +66,8 @@ nnoremap <Leader>g :Grepper<CR>
 
 " scala
 let g:syntastic_scala_checkers = ['fsc']
+"autocmd BufWritePost *.scala :EnTypeCheck
+nnoremap <localleader>t :EnTypeCheck<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
