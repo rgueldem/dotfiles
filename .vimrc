@@ -76,6 +76,8 @@ nnoremap <localleader>t :EnTypeCheck<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
+" don't reuse buffers
+let g:ctrlp_switch_buffer = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 
