@@ -1,11 +1,11 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
-" set the runtime path to include Vundle and initialize
+" vundle
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
+" plugins
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -21,17 +21,12 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
-" all of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
+" vundle end
 
-" Put your non-Plugin stuff after this line
-"
+" general settings
 syntax enable
-
-colorscheme solarized
-set t_Co=16
-set background=light
 set tabstop=2 shiftwidth=2 expandtab
 set ignorecase incsearch
 set ruler
@@ -47,16 +42,26 @@ set clipboard=unnamed
 " no need for swapfiles
 set noswapfile
 
+" color scheme
+colorscheme solarized
+set t_Co=16
+set background=light
+
+" leader mappings
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>e :Explore<CR>
+nnoremap <Leader>g :Grepper<CR>
+nnoremap <Leader>f :setlocal foldmethod=syntax<CR>
+nnoremap <Leader>F :setlocal nofoldenable<CR>
+nnoremap <Leader>t :EnTypeCheck<CR>
+nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 
-" highlight extra spaces
-let c_space_errors = 1
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" remove extra whitespace on save
+autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" autocmd QuickFixCmdPost *grep* cwindow
 " Grepper
+" use git grep by default
+" open in quickfix
 let g:grepper = {
       \ 'tools': ['git', 'ag', 'ack', 'grep'],
       \ 'quickfix': 1,
@@ -64,39 +69,29 @@ let g:grepper = {
       \ 'switch': 1,
       \ 'jump': 0,
       \ }
-nnoremap <Leader>g :Grepper<CR>
 
-nnoremap <Leader>f :setlocal foldmethod=syntax<CR>
-nnoremap <Leader>F :setlocal nofoldenable<CR>
-
-" scala
+" use fast scala compile or syntastic checks
 let g:syntastic_scala_checkers = ['fsc']
-"autocmd BufWritePost *.scala :EnTypeCheck
-nnoremap <localleader>t :EnTypeCheck<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
 " don't reuse buffers
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
-nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 
 " netrw
-" let g:netrw_preview = 1
+" preview in vertical split (70%)
+let g:netrw_preview = 1
 let g:netrw_winsize = 30
 
-autocmd BufReadPost *.hdbs set syntax=mustache
+" file types
+autocmd BufNewFile,BufReadPost *.hdbs set syntax=mustache
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" remove extra whitespace on save
-autocmd FileType ruby,eruby,html,javascript,scala,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-
+" make c-u undoable
 inoremap <c-u> <c-g>u<c-u>
+" support window switching directly out of insert mode
 inoremap <c-w> <Esc><c-w>
-
-" red status line in insert mode
-autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
-autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
 
 " tab to alternate buffer
 nnoremap <tab> :bn<cr>
