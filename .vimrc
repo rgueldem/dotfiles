@@ -56,6 +56,7 @@ nnoremap <Leader>f :setlocal foldmethod=syntax<CR>
 nnoremap <Leader>F :setlocal nofoldenable<CR>
 nnoremap <Leader>t :EnTypeCheck<CR>
 nnoremap <Leader>p :CtrlPClearAllCaches<CR>
+nnoremap <Leader>r :source $MYVIMRC<CR>
 
 " remove extra whitespace on save
 autocmd BufWritePre <buffer> :%s/\s\+$//e
