@@ -13,9 +13,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
-Plugin 'derekwyatt/vim-scala'
+" fork with custom import sorting
+Plugin 'rgueldem/vim-scala'
 Plugin 'derekwyatt/vim-sbt'
-Plugin 'ensime/ensime-vim'
+"Plugin 'ensime/ensime-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'justinmk/vim-sneak'
@@ -74,6 +75,9 @@ let g:grepper = {
 
 " use fast scala compile or syntastic checks
 let g:syntastic_scala_checkers = ['fsc']
+
+" SortScalaImports across groups of imports
+let g:scala_sort_across_groups = 1
 
 " ctrlp
 let g:ctrlp_max_files = 0
