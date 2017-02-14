@@ -43,6 +43,9 @@ set laststatus=2
 set clipboard=unnamed
 " no need for swapfiles
 set noswapfile
+" mouse suport
+set mouse=a
+set ttymouse=xterm2
 
 " color scheme
 colorscheme solarized
