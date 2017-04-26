@@ -1,0 +1,26 @@
+[user]
+	name = Ralf Gueldemeister
+
+[core]
+	excludesfile = /Users/rgueldemeister/.gitignore_global
+	precomposeunicode = false
+	editor = vim
+
+[hub]
+protocol = https
+
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  cherry = cherry-pick
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ls = ls-files
+  ds = diff --staged]
+
+[push]
+	default = simple
+[branch]
+  autosetuprebase = always

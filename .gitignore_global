@@ -1,0 +1,11 @@
+tags
+.DS_Store
+*.swp
+.byebug_history
+.classpath
+.project
+.settings
+.cache-main
+workbench.xmi
+.ensime
+.ensime_cache

@@ -19,7 +19,7 @@ Plugin 'derekwyatt/vim-sbt'
 "Plugin 'ensime/ensime-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
-Plugin 'justinmk/vim-sneak'
+"Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
