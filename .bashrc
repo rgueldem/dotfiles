@@ -12,4 +12,4 @@ export PS1='\h:\W$(__git_ps1 " %s")$ '
 # rbenv
 eval "$(rbenv init -)"
 
-source ~/.bashrc.work
+source ~/.bashrc_work
