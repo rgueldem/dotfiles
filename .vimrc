@@ -22,6 +22,7 @@ Plugin 'ervandew/supertab'
 "Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'rizzatti/dash.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -62,6 +63,9 @@ nnoremap <Leader>t :EnTypeCheck<CR>
 nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 nnoremap <Leader>r :source $MYVIMRC<CR>
 
+call togglebg#map("<F5>") " needed for the next line to work
+nnoremap <Leader>b :ToggleBG<CR>
+
 " remove extra whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -96,6 +100,9 @@ let g:netrw_winsize = 30
 " file types
 autocmd BufNewFile,BufReadPost *.hdbs set syntax=mustache
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" esc
+:imap jk <Esc>
 
 " make c-u undoable
 inoremap <c-u> <c-g>u<c-u>
