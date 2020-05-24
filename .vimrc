@@ -19,6 +19,7 @@ Plugin 'derekwyatt/vim-sbt'
 Plugin 'w0rp/ale'
 Plugin 'ervandew/supertab'
 Plugin 'tsandall/vim-rego'
+Plugin 'rhysd/vim-grammarous'
 
 call vundle#end()
 filetype plugin indent on
@@ -95,7 +96,8 @@ let g:netrw_winsize = 30
 
 " file types
 autocmd BufNewFile,BufReadPost *.hdbs set syntax=mustache
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown setlocal spell
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md setlocal spell
 
 " esc
 :imap jk <Esc>
