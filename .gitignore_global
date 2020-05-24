@@ -10,3 +10,5 @@ workbench.xmi
 .ensime
 .ensime_cache
 ensime.sbt
+project/.bloop
+.metals/

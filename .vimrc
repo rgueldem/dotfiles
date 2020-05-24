@@ -16,13 +16,9 @@ Plugin 'mhinz/vim-grepper'
 " fork with custom import sorting
 Plugin 'rgueldem/vim-scala'
 Plugin 'derekwyatt/vim-sbt'
-Plugin 'ensime/ensime-vim'
 Plugin 'w0rp/ale'
 Plugin 'ervandew/supertab'
-"Plugin 'justinmk/vim-sneak'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'rizzatti/dash.vim'
+Plugin 'tsandall/vim-rego'
 
 call vundle#end()
 filetype plugin indent on
@@ -99,7 +95,7 @@ let g:netrw_winsize = 30
 
 " file types
 autocmd BufNewFile,BufReadPost *.hdbs set syntax=mustache
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown setlocal spell
 
 " esc
 :imap jk <Esc>
