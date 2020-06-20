@@ -82,6 +82,8 @@ let g:syntastic_scala_checkers = ['fsc']
 
 " SortScalaImports across groups of imports
 let g:scala_sort_across_groups = 1
+" use scala doc recommended indentation
+let g:scala_scaladoc_indent = 1
 
 " ctrlp
 let g:ctrlp_max_files = 0
