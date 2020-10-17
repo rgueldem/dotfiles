@@ -12,3 +12,6 @@ workbench.xmi
 ensime.sbt
 project/.bloop
 .metals/
+project/metals.sbt
+.bloop
+.bsp

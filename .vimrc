@@ -13,13 +13,12 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'mhinz/vim-grepper'
-" fork with custom import sorting
-Plugin 'rgueldem/vim-scala'
-Plugin 'derekwyatt/vim-sbt'
-Plugin 'w0rp/ale'
 Plugin 'ervandew/supertab'
 Plugin 'tsandall/vim-rego'
 Plugin 'rhysd/vim-grammarous'
+Plugin 'neoclide/coc.nvim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -35,10 +34,8 @@ set number
 set nohlsearch
 " allow backspace over any text
 set backspace=2
-" always show status line
-set laststatus=2
 " use system clipboard
-set clipboard=unnamed
+"""" set clipboard=unnamed
 " no need for swapfiles
 set noswapfile
 " mouse suport
@@ -54,9 +51,6 @@ set background=light
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>g :Grepper<CR>
-nnoremap <Leader>f :setlocal foldmethod=syntax<CR>
-nnoremap <Leader>F :setlocal nofoldenable<CR>
-nnoremap <Leader>t :EnTypeCheck<CR>
 nnoremap <Leader>p :CtrlPClearAllCaches<CR>
 nnoremap <Leader>r :source $MYVIMRC<CR>
 
@@ -77,28 +71,16 @@ let g:grepper = {
       \ 'jump': 0,
       \ }
 
-" use fast scala compile or syntastic checks
-let g:syntastic_scala_checkers = ['fsc']
-
-" SortScalaImports across groups of imports
-let g:scala_sort_across_groups = 1
-" use scala doc recommended indentation
-let g:scala_scaladoc_indent = 1
-
 " ctrlp
 let g:ctrlp_max_files = 0
 " don't reuse buffers
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
-" netrw
-" preview in vertical split (70%)
-let g:netrw_preview = 1
-let g:netrw_winsize = 30
-
 " file types
 autocmd BufNewFile,BufReadPost *.hdbs set syntax=mustache
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.sbt set filetype=scala
 autocmd BufNewFile,BufReadPost *.md setlocal spell
 
 " esc
@@ -113,12 +95,6 @@ inoremap <c-w> <Esc><c-w>
 nnoremap <tab> :bn<cr>
 nnoremap <s-tab> :bp<cr>
 
-" Force hjkl
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-" red status line in insert mode
-autocmd InsertEnter * hi StatusLine ctermfg=1 ctermbg=15
-autocmd InsertLeave * hi StatusLine ctermfg=10 ctermbg=15
+" statusline
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:airline_theme='solarized'

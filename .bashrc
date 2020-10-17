@@ -7,7 +7,8 @@ export EDITOR=vim
 source ~/dotfiles/git-completion.bash
 source ~/dotfiles/git-prompt.sh
 
-export PS1='\h:\W$(__git_ps1 " %s")$ '
+#export PS1='\h:\W$(__git_ps1 " %s")$ '
+export PS1='$ '
 
 # rbenv
 eval "$(rbenv init -)"
